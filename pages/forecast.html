@@ -1,1 +1,16 @@
-forcaset for {{cityName}}
+Forecast for {{weatherResult.city.country}} {{ cityName }}
+
+<div ng-repeat="w in weatherResult.list">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{convertToDate(w.dt) | date: 'M-d-y H:mm' }}</h3>
+                </div>
+                <div class="panel-body">
+                    temperature（温度）: {{convertToCentigrade(w.main.temp)}}&#176;C / {{ convertToFahrenheit(w.main.temp) }}&#176;F
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
