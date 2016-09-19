@@ -13,16 +13,26 @@ weatherApp.config(function($routeProvider){
         controller:"forecastController"
     })
 })
+//my severvice
+weatherApp.service("cityService",function(){
+    this.name = "";
+    
+});
 
 
 //homeController
-weatherApp.controller("homeController",["$scope",function($scope){
+weatherApp.controller("homeController",["$scope","cityService",function($scope,cityService){
+    $scope.cityName = cityService.name;
     
+    $scope.$watch('cityName',function(){
+        cityService.name =  $scope.cityName;
+        
+    });
    
-}])
+}]);
 
 //forecastController
-weatherApp.controller("forecastController",["$scope",function($scope){
-    
+weatherApp.controller("forecastController",["$scope","cityService",function($scope,cityService){
+   $scope.cityName = cityService.name;
    
-}])
+}]);
