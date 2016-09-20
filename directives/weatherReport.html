@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+         <div class="panel-heading">
+                    <h3 class="panel-title">{{convertToDate({dt: day.dt}) | date: 'M-d-y H:mm' }}</h3>
+        </div>
+    
+         <div class="panel-body">
+                    temperature（温度）: {{convertToCentigrade({k:day.main.temp})}}&#176;C / {{ convertToFahrenheit({k: day.main.temp}) }}&#176;F
+         </div>
+</div>

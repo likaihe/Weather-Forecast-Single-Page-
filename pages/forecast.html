@@ -1,16 +1,17 @@
 Forecast for {{weatherResult.city.country}} {{ cityName }}
-
+<hr />
+<a href="#/">Back</a>
 <div ng-repeat="w in weatherResult.list">
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{convertToDate(w.dt) | date: 'M-d-y H:mm' }}</h3>
-                </div>
-                <div class="panel-body">
-                    temperature（温度）: {{convertToCentigrade(w.main.temp)}}&#176;C / {{ convertToFahrenheit(w.main.temp) }}&#176;F
-                </div>
+            <div>
+            <weather-report day = "w" 
+                     convert-to-fahrenheit = "convertToFahrenheit(k)" convert-to-date = "convertToDate(dt)"  
+                     convert-to-centigrade = "convertToCentigrade(k)"
+                            ></weather-report>
             </div>
+            
+
         </div>
     </div>
 </div>
